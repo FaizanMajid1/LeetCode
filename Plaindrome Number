@@ -1,0 +1,34 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        
+        if (x<0)    //any negative number.
+            return false;
+        else if (x/10 == 0) //there is only a single digit.
+            return true;
+        else 
+        {
+            long reversenum = 0;
+            int xcopy = x;
+            int digit=0;
+            
+            do
+            {
+                digit = xcopy % 10; //getting the right most digit.
+                reversenum = reversenum*10 + digit; //reversing digits
+                xcopy = xcopy/10; //dropping the right most digit.
+                
+                
+            } while (xcopy != 0);
+                
+                
+            if (reversenum == x)
+                return true;
+            else 
+                return false;
+            
+        }
+            
+        
+    }
+};
