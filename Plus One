@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        
+        int ptr = digits.size()-1; //last index
+        int reverseidx = ptr;
+        int flag = 0;
+        
+        for (int i=0 ; i <= ptr ; i++)
+        {
+            if (digits[ptr-i] < 9)
+            {
+                digits[ptr-i] += 1;
+                reverseidx = ptr-i;
+                flag = 1;
+                break;
+            }
+        }
+        
+        
+        if (flag == 0)
+        {
+            digits[0]=1;
+            for (int a=1 ; a <= ptr ; a++)
+            {
+                digits[a]=0;   
+            }
+            digits.push_back(0);
+            
+        } else if (reverseidx < ptr)
+        {
+            for (int b = reverseidx+1 ; b <= ptr ; b++)
+            {
+                digits[b] = 0;
+            }
+        }
+            
+        
+        return digits;      
+    }
+};
