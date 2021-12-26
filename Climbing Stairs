@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int climbStairs(int n) {
+       int next;
+        
+       if (n>0 && n<4) //for 1,2,3.
+       {
+           return n;
+       } else
+       { 
+           int previous = 2 , current = 3 ;
+            for (int c = 4 ; c<=n ; c++)
+            {
+                next = previous + current;
+                previous = current;
+                current = next;
+            } 
+       }
+       
+    return next;
+    }
+};
