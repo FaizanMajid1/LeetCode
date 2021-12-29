@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        int next=n, c=0;
+       do
+       {
+           n = next;
+           next = 0;
+           do
+           {
+               next += (n%10)*(n%10);
+               n = n/10;
+               c++;
+           } while (n!=0);
+       } while (next != 1 && c<30); //do only 30 tries if 1 not reached.
+            
+
+        if (next == 1)
+            return 1;
+        else
+            return 0;
+    }
+};
