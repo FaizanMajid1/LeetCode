@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int sml=nums[0],lrg=nums[0];
+            
+        for (int i=0 ; i<nums.size() ; i++)
+        {
+            if(nums[i]>lrg)
+                lrg = nums[i];
+            
+            if(nums[i]<sml)
+                sml = nums[i];
+            
+        }
+        
+        for (int j=lrg ; j>0 ; j--)
+        {
+            if(sml%j == 0 && lrg%j ==0)
+                return j;
+        }
+      
+    return 1;
+    }
+};
