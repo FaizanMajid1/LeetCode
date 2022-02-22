@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isThree(int n) {
+        
+        // number 1 and the number itself will always be the divisor.
+        int freq=2;
+        
+        for (int a=2; a<n; a++)
+        {
+            if(n%a == 0)
+                freq++;
+        }
+        
+        if(freq == 3)
+            return 1;
+        else 
+            return 0;
+    }
+};
