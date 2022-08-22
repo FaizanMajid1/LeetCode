@@ -1,0 +1,46 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+void func(vector<int> &lst, TreeNode* r);
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+       
+        vector<int> Lst;
+        
+        func(Lst,root);
+    
+    return Lst;
+    }
+};
+
+void func(vector<int> &lst, TreeNode* r)
+{
+    if (r == nullptr)
+        return;
+    
+    lst.push_back(r->val);
+    
+    if (r->left != nullptr)
+    {
+        func(lst, r->left);
+        r->left = nullptr;
+    }
+    
+    if (r->right != nullptr)
+    {
+        func(lst, r->right);
+        r->right = nullptr;
+    }
+}
+
+
