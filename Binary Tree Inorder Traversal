@@ -1,0 +1,32 @@
+void inorder(vector<int> &lst , TreeNode* r);
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        
+        vector<int> Lst;
+        inorder(Lst, root);
+        return Lst;
+    }
+};
+
+void inorder(vector<int> &lst , TreeNode* r)
+{
+    if (r == nullptr)
+        return;
+    
+    TreeNode* ptr = r;
+    
+    if (ptr->left != nullptr)
+    {
+        inorder(lst, ptr->left);
+    }
+
+    
+    lst.push_back(ptr->val);
+    
+    if (ptr->right != nullptr)
+    {
+        inorder(lst, ptr->right);
+    }
+        
+}
