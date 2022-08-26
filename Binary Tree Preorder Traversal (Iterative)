@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        
+        vector <TreeNode*> adrs;
+        vector <int> Arr;
+        TreeNode* ptr=root;        
+            
+        while (ptr)
+        {
+            Arr.push_back(ptr->val);
+            
+            if (ptr->right != nullptr)
+                adrs.push_back(ptr->right);
+            
+            if (ptr->left != nullptr)
+            {
+                ptr = ptr->left;
+                continue;
+            }
+
+            if (adrs.empty())
+                break;
+            
+              ptr = adrs[adrs.size()-1];
+              adrs.pop_back();    
+        }
+        return Arr;
+    }
+};
+
+
