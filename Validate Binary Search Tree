@@ -1,0 +1,30 @@
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        
+        vector<TreeNode*> stck;
+        bool first=1;
+        long value;
+        
+        while (!(stck.empty()) || root)
+        {
+            while (root)
+            {
+                stck.push_back(root);
+                root = root->left;
+            }
+
+            root = stck[stck.size()-1];
+            stck.pop_back();
+                       
+            if (!(first) && root->val <= value)
+                return false;
+            value = root->val;
+            root = root->right;  
+            
+            if (first)
+                first = 0;
+        } 
+        return true;    
+    }
+};
