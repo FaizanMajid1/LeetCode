@@ -33,7 +33,7 @@ public:
             ptr = ptr->next;
         }
 
-        if (count%2 && count > 1)
+        if (count%2)
             ptr = ptr->next;
         
         while(ptr)
